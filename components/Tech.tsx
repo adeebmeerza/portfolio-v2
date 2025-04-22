@@ -4,7 +4,6 @@ import {
   Code,
   Database,
   FileCode,
-  Github,
   Layers,
   Layout,
   Palette,
