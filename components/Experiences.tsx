@@ -68,7 +68,7 @@ const Experiences = () => {
       <div>
         {experiences.map((exp) => (
           <Link key={exp.period} href={exp.company.url}>
-            <div className="px-0 my-4 sm:p-6 rounded-md w-full grid gap-2 lg:grid-cols-[230px_1fr] sm:gap-0 hover:bg-primary/10 group">
+            <div className="px-0 my-4 sm:my-0 md:p-4 rounded-md w-full grid gap-2 lg:grid-cols-[230px_1fr] sm:gap-0 hover:bg-primary/10 group">
               <div>
                 <p className="hidden sm:inline text-gray-400 tracking-wide">
                   {exp.period}

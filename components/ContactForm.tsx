@@ -129,11 +129,7 @@ const ContactForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      placeholder="Recipient name"
-                      {...field}
-                      className="text-sm"
-                    />
+                    <Input placeholder="Name" {...field} className="text-sm" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
