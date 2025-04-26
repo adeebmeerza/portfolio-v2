@@ -83,14 +83,14 @@ const Tech = () => {
         </div>
 
         {/* Database */}
-        <div className="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/40 dark:to-violet-950/40 col-span-1 rounded-xl p-2 sm:p-6 border border-purple-100 dark:border-purple-900 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/40 dark:to-violet-950/40 col-span-1 sm:col-span-2 lg:col-span-2 rounded-xl p-2 sm:p-6 border border-purple-100 dark:border-purple-900 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-purple-100 dark:bg-purple-900/50 p-2 rounded-lg">
               <Database className="w-6 h-6 text-purple-600 dark:text-purple-400" />
             </div>
             <h3 className="text-xl font-semibold">Database</h3>
           </div>
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-3">
             <TechItem name="MongoDB" icon={<File />} color="text-green-500" />
             <TechItem name="MySQL" icon={<Table />} color="text-blue-500" />
             <TechItem
@@ -102,7 +102,7 @@ const Tech = () => {
         </div>
 
         {/* Tools - Large Card */}
-        <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/40 rounded-xl p-2 md:p-6 md:col-span-3 border border-amber-100 dark:border-amber-900 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/40 rounded-xl p-2 md:p-2 lg:p-6 col-span-1 md:col-span-2 lg:col-span-2 border border-amber-100 dark:border-amber-900 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-amber-100 dark:bg-amber-900/50 p-2 rounded-lg">
               <Terminal className="w-6 h-6 text-amber-600 dark:text-amber-400" />
@@ -123,7 +123,7 @@ const Tech = () => {
             />
             <TechItem name="AWS" icon={<Smile />} color="text-yellow-600" />
             <TechItem name="Jest" icon={<Terminal />} color="text-red-500" />
-            <TechItem name="Vercel" icon={<Triangle />} color="text-black" />
+            <TechItem name="Vercel" icon={<Triangle />} color="text-gray-700" />
           </div>
         </div>
       </div>

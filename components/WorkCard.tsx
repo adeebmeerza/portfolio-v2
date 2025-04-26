@@ -42,7 +42,7 @@ const WorkCard = ({
       className="w-full flex flex-col dark:shadow-gray-800 hover:scale-102 hover:border hover:border-primary hover:shadow-md transition-[scale,box-shadow,background-color]
       duration-[300ms,150ms,500ms] py-4 group"
     >
-      <CardHeader>
+      <CardHeader className="gap-0">
         <div className="w-fit h-fit rounded-md mb-2">
           {icon && (
             <div className="h-[80px] sm:h-[130px]">
@@ -63,14 +63,25 @@ const WorkCard = ({
           <CardTitle className="text-lg font-mono font-bold group-hover:text-blue-300 capitalize">
             {title}
           </CardTitle>
-          {link && (
-            <Link href={link} target="_blank">
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <ExternalLink className="h-4 w-4" />
-                <span className="sr-only">Visit project</span>
-              </Button>
-            </Link>
-          )}
+
+          <div className="flex items-center gap-2">
+            {status && (
+              <Badge
+                variant="secondary"
+                className="bg-yellow-500/10 text-yellow-500/60 text-xs font-medium"
+              >
+                {status}
+              </Badge>
+            )}
+            {link && (
+              <Link href={link} target="_blank">
+                <Button variant="ghost" size="icon" className="h-8 w-8">
+                  <ExternalLink className="h-4 w-4" />
+                  <span className="sr-only">Visit project</span>
+                </Button>
+              </Link>
+            )}
+          </div>
         </div>
       </CardHeader>
       <CardContent className="flex-grow px-4 lg:px-6">
@@ -89,14 +100,6 @@ const WorkCard = ({
           >
             {expanded ? "Show less" : "Read more"}
           </Button>
-        )}
-        {status && (
-          <Badge
-            variant="secondary"
-            className="mt-4 bg-yellow-500/20 text-yellow-500/70"
-          >
-            {status}
-          </Badge>
         )}
       </CardContent>
       <CardFooter className="flex-col items-start px-4 pt-2 border-t-2">

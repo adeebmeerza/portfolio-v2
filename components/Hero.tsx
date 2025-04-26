@@ -44,7 +44,6 @@ const Hero = () => {
           </Button>
         </div>
 
-        {/* <Button variant="secondary">Contact Me</Button> */}
         <Dialog>
           <DialogTrigger>
             <Status>Available to work</Status>

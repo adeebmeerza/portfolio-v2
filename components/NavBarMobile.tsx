@@ -14,6 +14,19 @@ import { usePathname } from "next/navigation";
 import { Routes } from "./Header";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./ui/drawer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import ContactForm from "./ContactForm";
 
 const NavBarMobile = ({ routes }: Routes) => {
   const [open, setOpen] = useState(false);
@@ -68,9 +81,44 @@ const NavBarMobile = ({ routes }: Routes) => {
             </ul>
           </nav>
 
-          <Button size="lg" className="w-full bg-primary">
-            Get in touch
-          </Button>
+          <div className="space-x-1 mb-4">
+            <Button asChild variant="ghost" size="icon">
+              <Link
+                href="https://www.linkedin.com/in/adibmirza"
+                target="_blank"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="icon">
+              <Link href="https://github.com/adeebmeerza" target="_blank">
+                <FontAwesomeIcon icon={faGithub} />
+              </Link>
+            </Button>
+          </div>
+
+          <Drawer>
+            <DrawerTrigger>
+              <Button
+                size="lg"
+                className="w-full bg-primary/80 dark:text-foreground/70"
+              >
+                Get in touch
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader className="pb-0">
+                <DrawerTitle>Get in touch.</DrawerTitle>
+                <DrawerDescription>
+                  Hey there! Let&apos;s have a quick chat. <br /> Drop me a
+                  message.
+                </DrawerDescription>
+              </DrawerHeader>
+              <DrawerFooter>
+                <ContactForm />
+              </DrawerFooter>
+            </DrawerContent>
+          </Drawer>
         </div>
       </SheetContent>
     </Sheet>
