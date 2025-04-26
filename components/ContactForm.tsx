@@ -158,7 +158,7 @@ const ContactForm = () => {
                 <FormItem>
                   <FormControl>
                     <Textarea
-                      placeholder="Type your message here."
+                      placeholder="Your message here..."
                       className="h-[70px] text-sm"
                       {...field}
                     />

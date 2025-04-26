@@ -4,6 +4,15 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+import ContactForm from "./ContactForm";
 
 const Hero = () => {
   return (
@@ -24,19 +33,34 @@ const Hero = () => {
       <div className="flex items-center space-x-4">
         <div className="space-x-1">
           <Button asChild variant="ghost" size="icon">
-            <Link href="/login">
-              <FontAwesomeIcon icon={faGithub} />
+            <Link href="https://www.linkedin.com/in/adibmirza" target="_blank">
+              <FontAwesomeIcon icon={faLinkedin} />
             </Link>
           </Button>
           <Button asChild variant="ghost" size="icon">
-            <Link href="/login">
-              <FontAwesomeIcon icon={faLinkedin} />
+            <Link href="https://github.com/adeebmeerza" target="_blank">
+              <FontAwesomeIcon icon={faGithub} />
             </Link>
           </Button>
         </div>
 
         {/* <Button variant="secondary">Contact Me</Button> */}
-        <Status>Available to work</Status>
+        <Dialog>
+          <DialogTrigger>
+            <Status>Available to work</Status>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle className="mb-2">Hello!</DialogTitle>
+              <DialogDescription>
+                Let&apos;s discuss what&apos;s in your mind. <br />
+                Request my resume, or we can just get connected.
+              </DialogDescription>
+            </DialogHeader>
+
+            <ContactForm />
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );

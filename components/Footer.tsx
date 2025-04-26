@@ -34,7 +34,10 @@ const Footer = () => {
               </p>
 
               <div className="flex space-x-4 -ml-1">
-                <Link href="https://linkedin.com" target="_blank">
+                <Link
+                  href="https://www.linkedin.com/in/adibmirza"
+                  target="_blank"
+                >
                   <Button
                     variant="ghost"
                     size="icon"
