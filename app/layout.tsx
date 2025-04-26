@@ -34,8 +34,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          `${geistSans.variable} ${geistMono.variable} antialiased`,
-          "bg-no-repeat bg-gradient-to-b from-primary/40 via-background via-3% to-background dark:from-primary/40 dark:via-background dark:via-3% dark:to-background"
+          `${geistSans.variable} ${geistMono.variable} antialiased`
         )}
       >
         <ThemeProvider

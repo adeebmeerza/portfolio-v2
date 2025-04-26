@@ -11,6 +11,7 @@ export default function Home() {
     <div>
       <div>
         <Header />
+        <div className="h-20" />
         <Hero />
         <Works />
         <div className="wrapper">
