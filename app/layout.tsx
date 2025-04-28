@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Adib Mirza Portfolio",
   description:
-    "A dedicated, analytical sofware engineer based in Cyberjaya, Malaysia. Develop scalable, efficient web apps on monolith and microservices architecture. Current swiss tool is TypeScript and JavaScript",
+    "A sofware engineer based in Cyberjaya, Malaysia. Develop scalable, efficient web apps on monolith and microservices architecture. Current swiss tool is TypeScript and JavaScript",
   icons: "favicon.ico",
   keywords:
     "software engineer, developer, portfolio, javascript, typescript, web app",
