@@ -47,7 +47,9 @@ const Hero = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => {
 
         <Dialog>
           <DialogTrigger>
-            <Status>Available to work</Status>
+            <Status className="cursor-pointer hover:bg-green-300/20">
+              Available to work
+            </Status>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>

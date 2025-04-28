@@ -42,7 +42,7 @@ const About = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => {
         </div>
 
         <Dialog>
-          <DialogTrigger>
+          <DialogTrigger className="bg-secondary/80 hover:bg-secondary text-secondary-foreground/80 w-max flex flex-row items-center py-1.5 px-3 gap-2 rounded-md text-sm cursor-pointer font-medium">
             Request my resume
             <svg
               xmlns="http://www.w3.org/2000/svg"
