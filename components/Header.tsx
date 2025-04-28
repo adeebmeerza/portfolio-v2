@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { RefObject, useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -12,40 +12,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import NavBarMobile from "./NavBarMobile";
+import { RouteNameType, routes, SectionRefs } from "@/hooks/useScrollTo";
 
-export type RouteProps = {
-  path: string;
-  label: string;
-};
-
-export const routes: RouteProps[] = [
-  {
-    path: "#recent-works",
-    label: "Works",
-  },
-  {
-    path: "#about",
-    label: "About",
-  },
-  {
-    path: "#stacks",
-    label: "Tech stacks",
-  },
-  {
-    path: "#experiences",
-    label: "Experiences",
-  },
-  {
-    path: "#contact",
-    label: "Contacts",
-  },
-];
-
-export interface Routes {
-  routes: RouteProps[];
-}
-
-const Header = () => {
+const Header = ({
+  onScrollTo,
+  sectionRefs,
+}: {
+  onScrollTo: (ref: RefObject<HTMLDivElement | null>, offset?: number) => void;
+  sectionRefs: SectionRefs;
+}) => {
   const [isScroll, setIsScroll] = useState(false);
   const [logoSize, setLogoSize] = useState(30);
 
@@ -62,6 +37,10 @@ const Header = () => {
       document.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleNavClick = (routeLabel: RouteNameType) => {
+    onScrollTo(sectionRefs[routeLabel]);
+  };
 
   return (
     <div>
@@ -94,15 +73,15 @@ const Header = () => {
           <NavigationMenu className="hidden sm:inline-block">
             <NavigationMenuList>
               {routes.map((route) => (
-                <NavigationMenuItem key={route.path}>
+                <NavigationMenuItem key={route.label}>
                   <NavigationMenuLink
-                    href={route.path}
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-gray-50/10 font-mono tracking-tight"
+                      "bg-transparent hover:bg-gray-50/10 font-mono tracking-tight capitalize"
                     )}
+                    onClick={() => handleNavClick(route.label)}
                   >
-                    {route.label}
+                    {route.label.replace(/([A-Z])/g, " $1")}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
@@ -111,7 +90,7 @@ const Header = () => {
 
           <div className="sm:hidden">
             {/* <ModeToggle></ModeToggle> */}
-            <NavBarMobile routes={routes} />
+            <NavBarMobile routes={routes} onNavClick={handleNavClick} />
           </div>
         </div>
       </header>

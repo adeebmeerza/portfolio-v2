@@ -5,16 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { Mail, MapPin } from "lucide-react";
 import ContactForm from "./ContactForm";
+import { RefObject } from "react";
 
-const Footer = () => {
+const Footer = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => {
   return (
     <>
-      <div
-        className="w-full h-12 bg-gradient-to-t from-primary/30 to-background dark:from-primary/30 dark:to-background"
-        id="contact"
-      />
+      <div className="w-full h-12 bg-gradient-to-t from-primary/30 to-background dark:from-primary/30 dark:to-background" />
 
-      <footer className="bg-slate-50 dark:bg-primary/5 border-t">
+      <footer className="bg-slate-50 dark:bg-primary/5 border-t" ref={ref}>
         <div className="wrapper">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
             {/* Brand section  */}

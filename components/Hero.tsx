@@ -13,10 +13,11 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import ContactForm from "./ContactForm";
+import { RefObject } from "react";
 
-const Hero = () => {
+const Hero = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => {
   return (
-    <section className="wrapper xl:my-8">
+    <section className="wrapper xl:my-8" ref={ref}>
       <h1 className="capitalize font-bold my-4">
         Hey! I&apos;m{" "}
         <span className="text-blue-500 text-2xl sm:text-3xl">Adib Mirza</span>

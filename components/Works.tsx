@@ -1,3 +1,4 @@
+import { RefObject } from "react";
 import WorkCard, { WorkCardProps } from "./WorkCard";
 import { Stack, Work } from "@/enum";
 
@@ -118,11 +119,11 @@ const worksItems: WorkCardProps[] = [
   },
 ];
 
-const Works = () => {
+const Works = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => {
   const items = [worksItems[0], worksItems[1], worksItems[4]];
 
   return (
-    <section className="wrapper" id="recent-works">
+    <section className="wrapper" id="recent-works" ref={ref}>
       <h2>Meet some of my works</h2>
       <div className="flex flex-col sm:flex-row gap-4">
         {items.map((item, _) => (

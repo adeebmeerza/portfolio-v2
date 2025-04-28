@@ -17,11 +17,11 @@ import {
   Table,
   GitMerge,
 } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, RefObject } from "react";
 
-const Tech = () => {
+const Tech = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => {
   return (
-    <section className="wrapper" id="stacks">
+    <section className="wrapper" id="stacks" ref={ref}>
       <h2>My Tech Stack</h2>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
         {/* Frontend - Large Card */}

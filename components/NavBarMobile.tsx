@@ -10,13 +10,10 @@ import {
 } from "./ui/sheet";
 import { useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Routes } from "./Header";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
@@ -27,10 +24,24 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import ContactForm from "./ContactForm";
+import { RouteNameType, RouteProps } from "@/hooks/useScrollTo";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "./ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
-const NavBarMobile = ({ routes }: Routes) => {
+const NavBarMobile = ({
+  routes,
+  onNavClick,
+}: {
+  routes: RouteProps[];
+  onNavClick: (routeLabel: RouteNameType) => void;
+}) => {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -61,28 +72,35 @@ const NavBarMobile = ({ routes }: Routes) => {
             </Link>
           </div>
 
-          <nav className="py-4 mb-4 overflow-auto border-y">
-            <ul className="flex flex-col gap-3">
-              {routes.map((route) => (
-                <li key={route.path}>
-                  <Link
-                    href={route.path}
-                    onClick={() => setOpen(false)}
-                    className={`block px-2 py-1 text-lg ${
-                      pathname == route.path
-                        ? "font-medium text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {route.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <NavigationMenu
+            orientation="vertical"
+            className="pb-4 mb-4 border-b max-w-full flex-none"
+          >
+            <div className="relative w-full">
+              <NavigationMenuList className="flex flex-col w-full space-y-1">
+                {routes.map((route) => (
+                  <NavigationMenuItem key={route.label} className="w-full">
+                    <NavigationMenuLink
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        "bg-transparent hover:bg-gray-50/10 font-mono tracking-tight capitalize",
+                        "h-12 w-full items-start"
+                      )}
+                      onClick={() => {
+                        onNavClick(route.label);
+                        setOpen(false);
+                      }}
+                    >
+                      {route.label.replace(/([A-Z])/g, " $1")}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </div>
+          </NavigationMenu>
 
-          <div className="space-x-1 mb-4">
-            <Button asChild variant="ghost" size="icon">
+          <div className="space-x-3 mb-4">
+            <Button asChild variant="ghost" size="lg" className="">
               <Link
                 href="https://www.linkedin.com/in/adibmirza"
                 target="_blank"
@@ -90,7 +108,7 @@ const NavBarMobile = ({ routes }: Routes) => {
                 <FontAwesomeIcon icon={faLinkedin} />
               </Link>
             </Button>
-            <Button asChild variant="ghost" size="icon">
+            <Button asChild variant="ghost" size="lg">
               <Link href="https://github.com/adeebmeerza" target="_blank">
                 <FontAwesomeIcon icon={faGithub} />
               </Link>

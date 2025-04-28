@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { RefObject } from "react";
 
 const experiences: {
   period: string;
@@ -60,9 +61,9 @@ const experiences: {
   },
 ];
 
-const Experiences = () => {
+const Experiences = ({ ref }: { ref: RefObject<HTMLDivElement | null> }) => {
   return (
-    <section className="wrapper" id="experiences">
+    <section className="wrapper" id="experiences" ref={ref}>
       <h2>Work Experiences</h2>
 
       <div>
